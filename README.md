@@ -51,10 +51,14 @@ That means,
 --- = -------------------------------------------------------------
  4                     P(pizza_type = cheese_burst)
 ```
-
-Funny thing is that we were able to get the value of P(slice toppings = corn | pizza type = cheese burst) without actually using formula. Let's how can we validate above equation 
+Funny thing is that we were able to get the value of 
+```
+P(slice toppings = corn | pizza type = cheese burst)
+```
+without actually using formula. Let's how can we validate above equation 
 
 We know that 
+
 ```
 P(pizza_type = cheese_burst) = 1
 ```
@@ -86,12 +90,12 @@ P(H|E) = -----------------
 
 ``` 
 where
-
+```
 - P(H) is the probability of hypothesis H being true. This is known as the prior probability.
 - P(E) is the probability of the evidence(regardless of the hypothesis).
 - P(E|H) is the probability of the evidence given that hypothesis is true.
 - P(H|E) is the probability of the hypothesis given that the evidence is there.
-
+```
 
 Wowo that's pretty hard to understand...
 Let's take a example and try to simplify the concept,
@@ -105,7 +109,11 @@ Probability that test gives “positive” result and patient have the disease, 
 Probability of people not suffering from Disease D, P(~D) = 0.97 = 97%
 Probability that test gives “positive” result and patient does have the disease, P(Pos | ~D) = 0.01 =1%
 
-For calculating the probability that the patient actually have the disease i.e, P( D | Pos) we will use Bayes theorem:
+For calculating the probability that the patient actually have the disease i.e, 
+```
+P( D | Pos) 
+```
+we will use Bayes theorem:
 
 ```
                 P(Pos | D) * P(D)
