@@ -283,6 +283,7 @@ Cons
 - It considers all the features to be unrelated, so it cannot learn the relationship between features. E.g., Let’s say Remo is going to a part. While cloth selection for the party, Remo is looking at his cupboard. Remo likes to wear a white color shirt. In Jeans, he likes to wear a brown Jeans, But Remo doesn’t like wearing a white shirt with Brown Jeans. Naive Bayes can learn individual features importance but can’t determine the relationship among features.
 
 references:
-[Naive Bayes wiki](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
-[Naive Bayes by Rahul Saxena](http://dataaspirant.com/2017/02/06/naive-bayes-classifier-machine-learning/)
+- [Naive Bayes wiki](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
+
+- [Naive Bayes by Rahul Saxena](http://dataaspirant.com/2017/02/06/naive-bayes-classifier-machine-learning/)
 
