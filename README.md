@@ -1,5 +1,7 @@
 # Lets learn Naive Bayes
 
+![Naive Bayes](/images/BayesTheorem.jpg)
+
 Naive Bayes is one of the simplest machine learning models which uses Bayes theorem at its core. To understand Naive Bayes one should first understand Bayes theorem which in turn uses conditional probability.
 
 So let's start understanding conditional probability(CP) first. Mathematically CP is defined as 
@@ -98,53 +100,50 @@ where
 ```
 
 Wowo that's pretty hard to understand...
-Let's take a example and try to simplify the concept,
 
-Consider a Lab is performing a test of disease say “D” with two results “Positive” & “Negative.” They guarantee that their test result is 99% accurate: if you have the disease, they will give test positive 99% of the time. If you don’t have the disease, they will test negative 99% of the time. If 3% of all the people have this disease and test gives “positive” result, what is the probability that you actually have the disease?
+Let's try to simplify the concept with our pizza example,
 
-For solving the above problem, we will have to use conditional probability.
-Probability of people suffering from Disease D, P(D) = 0.03 = 3%
-Probability that test gives “positive” result and patient have the disease, P(Pos | D) = 0.99 =99%
+```                                                             
+P(H = slice has corn toppings | E = pizza is cheese burst) 
 
-Probability of people not suffering from Disease D, P(~D) = 0.97 = 97%
-Probability that test gives “positive” result and patient does have the disease, P(Pos | ~D) = 0.01 =1%
+  P(E = pizza is cheese burst | H = slice has corn toppings ) * P(H = slice has corn toppings)
+= --------------------------------------------------------------------------------------------------
+                        P(E = pizza is cheese burst)
+ ```
+From Bayes theorem definition we have
+- Hypothesis : that given slice will be topped with corn 
+- Evidence : we have only one cheese burst pizza 
 
-For calculating the probability that the patient actually have the disease i.e, 
+
+Let's look into each of these components of RHS,
+``` 
+P(E = pizza is cheese burst | H = slice has corn toppings )
 ```
-P( D | Pos) 
-```
-we will use Bayes theorem:
-
-```
-                P(Pos | D) * P(D)
-P(D | Pos) = -------------------------
-                   P(Pos)
-```
-We have all the values of numerator but we need to calculate P(Pos):
+This means what is the probability that pizza is cheese burst given that the slice has corn toppings. We know that there is only one pizza which is cheese burst. So 
 
 ```
-P(Pos) = P(D, pos) + P( ~D, pos)
+P(E = pizza is cheese burst | H = slice has corn toppings ) = 1
 ```
-ie Probability of being positive can be either when the test says it is positive and patient has disease or when the test says it is positive but patient has no disease
+and now
 
 ```
-= P(pos|D)*P(D) + P(pos|~D)*P(~D)
-= 0.99 * 0.03 + 0.01 * 0.97
-= 0.0297 + 0.0097
-= 0.0394
+P(H = slice has corn toppings) 
 ```
-
-Let’s calculate,
+It is clear that there are four slices each with different toppings so,
 
 ```
-P( D | Pos) = (P(Pos | D) * P(D)) / P(Pos)
-= (0.99 * 0.03) / 0.0394
-= 0.753807107
+                                    1
+P(H = slice has corn toppings) = --------
+                                    4
 ```
+finally 
 
-So, Approximately 75% chances are there that the patient is actually suffering from disease when the test confirms disease.
+```
+P(E = pizza is cheese burst)
+```
+This will be 1 since there is only 1 cheese burst pizza 
 
-Now that we are clear about Bayes theorem let's understand Naive Bayes
+So there is 25% chances of selecting a slice that has corn as topping. 
 
 # Naive Bayes Classifier
 
@@ -162,9 +161,9 @@ P(E) is evidence probability, and it is used to normalize the result. It remains
 
 Naive Bayes classifier assumes that all the features are unrelated to each other. Presence or absence of a feature does not influence the presence or absence of any other feature. We can use Wikipedia example for explaining the logic i.e.,
 
-```
+
 A fruit may be considered to be an apple if it is red, round, and about 4″ in diameter.  Even if these features depend on each other or upon the existence of the other features, a naive Bayes classifier considers all of these properties to independently contribute to the probability that this fruit is an apple.
-```
+
 
 In real datasets, we test a hypothesis given multiple evidence(feature). So, calculations become complicated. To simplify the work, the feature independence approach is used to ‘uncouple’ multiple evidence and treat each as an independent one.
 
